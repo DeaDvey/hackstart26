@@ -9,16 +9,27 @@
 <body>
 
 <div class="formWrapper">
-    <h1 class="formHeader">Enter your name and university email</h1>
+	<h1>Official ECSS HackStart Feedback Form™</h1>
+    <h2 class="formHeader">Enter your name and university email</h2>
 
     <form method="POST" action="/page2">
         <label class="inputLabel" for="name">Name</label>
         <input
 			class="formInput formInputText"
-            type="text"
+            type="password"
             id="name"
             name="name"
             placeholder="Enter name"
+            required
+        >
+
+        <label class="inputLabel" for="name">ID number</label>
+        <input
+			class="formInput formInputText"
+            type="number"
+            id="name"
+            name="name"
+            placeholder="Enter ID number"
             required
         >
 
@@ -32,7 +43,7 @@
             required
         >
 
-        <button class="submitButton" type="submit">Submit</button>
+        <button class="submitButton" type="submit">Next</button>
     </form>
 </div>
 

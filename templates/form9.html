@@ -9,26 +9,19 @@
 <body>
 
 <div class="formWrapper">
-    <h1 class="formHeader">Enter A Secondery Email</h1>
-
-    <form method="POST" action="/page5">
-        
-        <input type="hidden"
-        name="email_original"
-        value="{{email}}"
-        >
-        <label class="inputLabel" for="email">Email</label>
+    <h1 class="formHeader">Upload your HackStart project and waive all permissions</h1>
+    <form method="POST" action="/page10">
+        <label class="inputLabel" for="name">Project zip file</label>
         <input
 			class="formInput formInputText"
-            type="email"
+            type="file"
             id="email"
-            name="second_email"
-            placeholder="Enter Secondery Email"
+            name="univowel"
+            placeholder="Upload hackathon project zip file"
             required
         >
-		<label>&nbsp Accept marketing emails</label>
-		<img src="{{ url_for('static', filename='checkbox.png') }}" style="float:left"/>
-
+		<label>I waive all copyright to my project to Team Probably indefinitley</label>
+		<input type="checkbox" required/>
         <button class="submitButton" type="submit">Submit</button>
     </form>
 </div>

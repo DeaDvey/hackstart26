@@ -6,8 +6,8 @@ from flask import url_for
 app = Flask(__name__)
 
 @app.route('/')
-def dynamic():
-	return render_template('dynamic.html')
+def page1():
+	return render_template('form1.html')
 
 @app.route('/page2', methods=['POST'])
 def page2(email=None):
@@ -83,4 +83,8 @@ def page7(email1=None, email2=None):
 	if perscons != correct_perscons:
 		return render_template('error.html', error="You did not input the consonants from your personal email correctly.")
 	else:
-		return render_template('form7.html', email=email1)
+		return render_template('form7.html')
+
+@app.route('/page9', methods=['POST','GET'])
+def page9():
+	return render_template('form9.html')

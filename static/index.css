@@ -80,3 +80,9 @@ body {
     transform: translateX(-50%);
     font-size: 30px;
 }
+
+#button-grid {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 10px;
+}
