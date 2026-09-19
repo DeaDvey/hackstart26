@@ -33,3 +33,21 @@ def page4(email_original=None, email_backwards=None):
 		return render_template('error.html', error="Your reversed emails do not match.")
 	else:
 		return render_template('form4.html', email=actual_email)
+
+@app.route('/page5', methods=['POST'])
+def page5(email_original=None, second_email=None):
+	email_original = request.form['email_original']
+	second_email = request.form['second_email']
+	if email_original == second_email:
+		return render_template('error.html', error='You should have a different personal email to your uni email!')
+	else:
+		return render_template('form5.html', email=email_original)
+
+@app.route('/page6', methods=['POST'])
+def page3(email1=None, email2=None):
+	email1 = request.form['email1']
+	email2 = request.form['email2']
+	if email1 != email2:
+		return render_template('error.html', error="Your emails do not match.")
+	else:
+		return render_template('form3.html', email=email1)
