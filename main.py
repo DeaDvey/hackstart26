@@ -14,3 +14,7 @@ def page2(email=None):
 	email = request.form['email']
 	return render_template('form2.html', email=email)
 
+@app.route('/page3', methods=['POST'])
+def page3(email=None):
+	email = request.form['email']
+	return render_template('form3.html', email=email)
