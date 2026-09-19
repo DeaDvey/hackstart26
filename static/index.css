@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-	background-color: rgb(255, 12, 12);
+	background-color: rgb(135, 154, 156);
 	color: #000000;
 }
 
@@ -53,4 +53,5 @@ body {
  .error-message {
     color: red;
     font-size: 14px;
-    margin-top: 5px;}
+    margin-top: 5px;
+}
