@@ -5,11 +5,12 @@ from flask import url_for
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-	return "<p>Hello, World!</p>"
+@app.route('/')
+def dynamic():
+	return render_template('dynamic.html')
 
-@app.route('/dynamic/')
-@app.route('/dynamic/<name>')
-def dynamic(name=None):
-	return render_template('dynamic.html', person=name)
+@app.route('/page2', methods=['POST'])
+def page2(email=None):
+	email = request.form['email']
+	return render_template('form2.html', email=email)
+
