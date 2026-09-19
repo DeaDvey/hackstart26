@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+<div class="formWrapper">
+    <h1 class="formHeader">Date of birth:</h1>
+
+        <input type="hidden" name="email" value="{{email}}">
+
+        <div class="diceRow">
+        <div class="diceWrapper">
+            <h5>d</h5>
+            <div class="diceArea" id="dice-arena">
+                <div class="dice">
+                    <h1 id="result1">?</h1>
+                </div>
+            </div>
+            <button class="rollButton" onclick="rollDice('result1')">Roll</button>
+        </div>
+
+        <div class="diceWrapper">
+            <h5>d</h5>
+            <div class="diceArea" id="dice-arena">
+                <div class="dice">
+                    <h1 id="result2">?</h1>
+                </div>
+            </div>
+            <button class="rollButton" onclick="rollDice('result2')">Roll</button>
+        </div>
+
+        <h1 class="slash">/</h1>
+
+        <div class="diceWrapper">
+            <h5>m</h5>
+            <div class="diceArea" id="dice-arena">
+                <div class="dice">
+                    <h1 id="result3">?</h1>
+                </div>
+            </div>
+            <button class="rollButton" onclick="rollDice('result3')">Roll</button>
+        </div>
+
+        <div class="diceWrapper">
+            <h5>m</h5>
+            <div class="diceArea" id="dice-arena">
+                <div class="dice">
+                    <h1 id="result4">?</h1>
+                </div>
+            </div>
+            <button class="rollButton" onclick="rollDice('result4')">Roll</button>
+        </div>
+
+        <h1 class="slash">/</h1>
+
+        <div class="diceWrapper">
+            <h5>y</h5>
+            <div class="diceArea" id="dice-arena">
+                <div class="dice">
+                    <h1 id="result5">?</h1>
+                </div>
+            </div>
+            <button class="rollButton" onclick="rollDice('result5')">Roll</button>
+        </div>
+
+        <div class="diceWrapper">
+            <h5>y</h5>
+            <div class="diceArea" id="dice-arena">
+                <div class="dice">
+                    <h1 id="result6">?</h1>
+                </div>
+            </div>
+            <button class="rollButton" onclick="rollDice('result6')">Roll</button>
+        </div>
+
+        <div class="diceWrapper">
+            <h5>y</h5>
+            <div class="diceArea" id="dice-arena">
+                <div class="dice">
+                    <h1 id="result7">?</h1>
+                </div>
+            </div>
+            <button class="rollButton" onclick="rollDice('result7')">Roll</button>
+        </div>
+
+        <div class="diceWrapper">
+            <h5>y</h5>
+            <div class="diceArea" id="dice-arena">
+                <div class="dice">
+                    <h1 id="result8">?</h1>
+                </div>
+            </div>
+            <button class="rollButton" onclick="rollDice('result8')">Roll</button>
+        </div>
+        </div>
+
+        <form method="POST" action="/page7">
+            <button class="submitButton" type="submit">Submit</button>
+        </form>
+        
+</div>
+
+<script>
+async function rollDice(id) {
+  const numRolls = 20;
+
+  for (let roll = 0; roll < numRolls; roll++) {
+    const number = Math.floor(Math.random() * 10);
+    document.getElementById(id).textContent = number;
+
+    const duration = 100 * (roll / numRolls);
+    
+    await new Promise(r => setTimeout(r, duration));
+  }
+}
+</script>
+
+</body>
+</html>
