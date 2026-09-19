@@ -1,14 +1,40 @@
-<!doctype html>
-<html>
-	<head>
-		<title>Hello from Flask</title>
-		<link rel="stylesheet" href="/static/index.css" />
-	</head>
-	<body>
-		{% if person %}
-		<h1>Hello {{ person }}!</h1>
-		{% else %}
-		<h1>Hello, World!</h1>
-		{% endif %}
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+<div class="formWrapper">
+    <h1 class="formHeader">Form test</h1>
+
+    <form method="POST">
+        <label class="inputLabel" for="name">Name</label>
+        <input
+			class="formInput formInputText"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter name"
+            required
+        >
+
+        <label class="inputLabel" for="email">Email</label>
+        <input
+			class="formInput formInputText"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            required
+        >
+
+        <button class="submitButton" type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
 </html>

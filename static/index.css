@@ -1,3 +1,44 @@
 body {
-	background-color: green;
+    font-family: Arial, sans-serif;
+}
+
+.formWrapper {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+.formHeader {
+    margin-bottom: 25px;
+}
+
+.inputLabel {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.formInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+.formInputText {
+
+}
+
+.submitButton {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    background: #0056b3;
 }
