@@ -29,7 +29,10 @@
 		<label>&nbsp Accept marketing emails</label>
 		<img src="{{ url_for('static', filename='checkbox.png') }}" style="float:left"/>
 
-        <button class="submitButton" type="submit">Submit</button>
+       <div id="button-grid">
+            <button class="submitButton" type="submit">Submit</button>
+            <a href="/"><button class="submitButton">Retry</button></a>
+        </div>
     </form>
 </div>
 
