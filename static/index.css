@@ -52,20 +52,29 @@ body {
 
 #error-message {
     color: red;
-    font-size: 14px;
+    font-size: 30px;
     margin-top: 5px;
+    text-align: center;
 }
 
 #error-heading {
-    color: rgb(126, 4, 233);
-    font-size: 24px;
+    color: rgb(252, 252, 252);
+    font-size: 50px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 #error-button button {
-    padding: 10px 20px;
+    padding: 50px 50px;
     background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    font-size: 30px;
 }
