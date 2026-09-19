@@ -100,7 +100,7 @@
         </div>
 
         <form method="POST" action="/page8">
-            <p id="dob"></p>
+            <input type="text" name="dob" style="visibility: hidden;" id="dob"></input>
             <div id="button-grid">
                 <button class="submitButton" type="submit">Submit</button>
                 <a href="/"><button class="retryButton">Retry</button></a>
@@ -110,12 +110,22 @@
 </div>
 
 <script>
+const dob = "";
+
+String.prototype.replaceAt = function(index, replacement) {
+    return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+}
+
 async function rollDice(id) {
   const numRolls = 20;
 
   for (let roll = 0; roll < numRolls; roll++) {
     const number = Math.floor(Math.random() * 10);
     document.getElementById("result" + id).textContent = number;
+
+    dob.replaceAt(id, number);
+
+    document.getElementById("dob").textContent = dob;
 
     const duration = 100 * (roll / numRolls);
     

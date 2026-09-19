@@ -91,6 +91,12 @@ def page7(email1=None, email2=None):
 
 @app.route('/page8', methods=['POST', 'GET'])
 def page8():
+	dob = request.form['dob']
+
+	if (parseInt(dob) < 2000):
+		return render_template('error.html',  error="You are too old :p")
+	
+
 	return render_template('form8.html')
 
 @app.route('/page9', methods=['POST','GET'])
