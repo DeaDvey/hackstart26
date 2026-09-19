@@ -42,14 +42,29 @@ body {
     margin-top: 25px;
     padding: 12px;
     font-size: 18px;
-    background: #007bff;
+    background: #be0202;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.retryButton {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    font-size: 18px;
+    background: #0c7d00;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 .submitButton:hover {
-    background: #0056b3;
+    background: #860000;
+}
+
+.retryButton:hover {
+	background: #095800;
 }
 
 #error-message {

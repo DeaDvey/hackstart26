@@ -8,17 +8,19 @@
 </head>
 <body>
 
-<div class="formWrapper">
-    <h1 class="formHeader">Reflex test</h1>
+    <div class="formWrapper">
+        <h1 class="formHeader">Reflex test</h1>
 
-    <form method="POST" action="/page9">
-        <input type="hidden" name="email" value="{{email}}">
+        <form method="POST" action="/page9">
+            <input type="hidden" name="email" value="{{email}}">
 
-        <div class="catchArena" id="catch-arena">
-            <button class="catchButton" id="catch-button" type="submit">Catch me!</button>
-        </div>
-    </form>
-</div>
+            <div class="catchArena" id="catch-arena">
+                <button class="catchButton" id="catch-button" type="submit">Catch me!</button>
+            </div>
+        </form>
+    </div>
+
+    <a href="/"><button class="retryButton">I give up</button></a>
 
 <script>
     const arena = document.getElementById('catch-arena');
