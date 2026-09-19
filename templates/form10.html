@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+<div class="formWrapper">
+    <h1 class="formHeader">Your Opinions</h1>
+
+    <form method="POST" action="/quizend">
+        <label class="inputLabel" for="name">
+			In 5 words or fewer and 2 punctionations or greater, rate on a scale of e to π, describe how much you enjoyed the 2026 ECSS HackStart 2026.
+		</label>
+        <input
+			class="formInput formInputText"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter review"
+            required
+        >
+
+		<div id="button-grid">
+            <a href="/"><button class="submitButton">Retry</button></a>
+            <button class="submitButton" type="submit">Finish</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

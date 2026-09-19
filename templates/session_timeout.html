@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Error</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+	</head>
+	<body>
+		<audio controls autoplay hidden>
+			<source src="{{url_for("static", filename="trombone.mp3")}}" type="audio/mpeg">
+		</audio>
+		<h1 id="error-heading">:( We're sorry, you took too long and your session expired, please try again within the time-limit.</h1>
+		<a href="/" id="error-button"><button>Retry</button></a>
+	</body>
+</html>
