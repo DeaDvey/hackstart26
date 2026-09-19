@@ -1,1 +1,37 @@
-{{ email }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+<div class="formWrapper">
+    <h1 class="formHeader">Form test</h1>
+
+    <form method="POST" action="/page3">
+		<input
+			type="hidden"
+			value="{{email}}"
+			required
+			name="email1"
+		/>
+
+        <label class="inputLabel" for="email">Reënter E-Mail</label>
+        <input
+			class="formInput formInputText"
+            type="email"
+            id="email"
+            name="email2"
+            placeholder="Enter email"
+            required
+        >
+
+        <button class="submitButton" type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

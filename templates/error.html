@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Contact Form</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+	</head>
+	<body>
+		<h1 id="error-heading">:( Oops, didn't quite get that right!</h1>
+		<p id="error-message">
+			{{ error }}
+		</p><br/>
+		<a href="/" id="error-button"><button>Retry</button></a>
+	</body>
+</html>
