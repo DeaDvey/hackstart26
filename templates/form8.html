@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+<div class="formWrapper">
+    <h1 class="formHeader">Reflex test</h1>
+
+    <form method="POST" action="/page9">
+        <input type="hidden" name="email" value="{{email}}">
+
+        <div class="catchArena" id="catch-arena">
+            <button class="catchButton" id="catch-button" type="submit">Catch me!</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const arena = document.getElementById('catch-arena');
+    const button = document.getElementById('catch-button');
+
+    const speed = 8;
+    let x, y, vx, vy;
+    let running = true;
+
+    function randomDirection() {
+        const angle = Math.random() * Math.PI * 2;
+        vx = Math.cos(angle) * speed;
+        vy = Math.sin(angle) * speed;
+    }
+
+    function bounds() {
+        return {
+            maxX: Math.max(arena.clientWidth - button.offsetWidth, 0),
+            maxY: Math.max(arena.clientHeight - button.offsetHeight, 0)
+        };
+    }
+
+    function tick() {
+        if (!running) return;
+
+        const { maxX, maxY } = bounds();
+        x += vx;
+        y += vy;
+
+        if (x <= 0 || x >= maxX) {
+            vx *= -1;
+            x = Math.min(Math.max(x, 0), maxX);
+        }
+        if (y <= 0 || y >= maxY) {
+            vy *= -1;
+            y = Math.min(Math.max(y, 0), maxY);
+        }
+
+        button.style.left = x + 'px';
+        button.style.top = y + 'px';
+
+        requestAnimationFrame(tick);
+    }
+
+    button.addEventListener('mouseenter', randomDirection);
+    button.addEventListener('click', () => { running = false; });
+
+    const start = bounds();
+    x = Math.random() * start.maxX;
+    y = Math.random() * start.maxY;
+    randomDirection();
+    requestAnimationFrame(tick);
+</script>
+
+</body>
+</html>
