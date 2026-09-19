@@ -85,7 +85,7 @@ def page7(email1=None, email2=None):
 	else:
 		return render_template('form7.html')
 
-@app.route('/page8', methods=['POST'])
+@app.route('/page8', methods=['POST', 'GET'])
 def page8():
 	return render_template('form8.html')
 
