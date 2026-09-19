@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+<div class="formWrapper">
+    <h1 class="formHeader">To confirm your email address, input the vowels of your uni email and the consonants (order matters)</h1>
+    <form method="POST" action="/page7">
+		<input type="hidden" name="uni_email" value="{{uni_email}}" />
+		<input type="hidden" name="second_email" value="{{second_email}}" />
+        <label class="inputLabel" for="name">Vowels of your uni email</label>
+        <input
+			class="formInput formInputText"
+            type="text"
+            id="email"
+            name="univowel"
+            placeholder="Enter name"
+            required
+        >
+
+        <label class="inputLabel" for="email">Consonants of your personal email</label>
+        <input
+			class="formInput formInputText"
+            type="text"
+            id="email"
+            name="perscons"
+            placeholder="Enter email"
+            required
+        >
+
+        <button class="submitButton" type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

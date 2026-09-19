@@ -12,7 +12,11 @@ def dynamic():
 @app.route('/page2', methods=['POST'])
 def page2(email=None):
 	email = request.form['email']
-	return render_template('form2.html', email=email)
+	domain = email.split("@")[-1]
+	if domain != "soton.ac.uk" and domain != "soutampton.ac.uk" and domain != "ecs.soton.ac.uk":
+		return render_template('error.html', error='Domain is not a Southampton official™ domain')
+	else:
+		return render_template('form2.html', email=email)
 
 @app.route('/page3', methods=['POST'])
 def page3(email1=None, email2=None):
@@ -38,16 +42,45 @@ def page4(email_original=None, email_backwards=None):
 def page5(email_original=None, second_email=None):
 	email_original = request.form['email_original']
 	second_email = request.form['second_email']
+	second_domain = second_email.split("@")[-1]
 	if email_original == second_email:
 		return render_template('error.html', error='You should have a different personal email to your uni email!')
+	if second_domain == "gmail.com":
+		return render_template('error.html', error='Don\'t use Gmail, you data subject!')
+	if second_domain == "outlook.com" or second_domain == "hotmail.com":
+		return render_template('error.html', error='Don\'t use Outlook, you corporate brown-nose!')
 	else:
-		return render_template('form5.html', email=email_original)
+		return render_template('form5.html', email=email_original, second_email=second_email)
 
 @app.route('/page6', methods=['POST'])
-def page3(email1=None, email2=None):
+def page6(email1=None, email2=None):
 	email1 = request.form['email1']
 	email2 = request.form['email2']
+	second_email = request.form['second_email']
 	if email1 != email2:
 		return render_template('error.html', error="Your emails do not match.")
 	else:
-		return render_template('form3.html', email=email1)
+		return render_template('form6.html', uni_email=email1, second_email=second_email)
+
+@app.route('/page7', methods=['POST'])
+def page7(email1=None, email2=None):
+	univowel = request.form['univowel']
+	perscons = request.form['perscons']
+	uni_email = request.form['uni_email']
+	second_email = request.form['second_email']
+	correct_univowel = ''
+	for char in uni_email:
+		if char.lower() in 'aeiou':
+			correct_univowel += char.lower()
+	
+	correct_perscons = ''
+	for char in second_email:
+		if char.lower() in 'bcdfghjklmnpqrstvwxyz':
+			correct_perscons += char.lower()
+
+	if univowel != correct_univowel:
+		return render_template('error.html', error="You did not input the vowels from your uni email correctly.")
+	if perscons != correct_perscons:
+		return render_template('error.html', error="You did not input the consonants from your personal email correctly.")
+	else:
+		return render_template('form7.html', email=email1)
