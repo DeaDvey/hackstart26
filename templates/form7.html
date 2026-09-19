@@ -117,8 +117,6 @@ async function rollDice(id) {
     const number = Math.floor(Math.random() * 10);
     document.getElementById("result" + id).textContent = number;
 
-    document.getElementById("dob").textContent.charAt = roll;
-
     const duration = 100 * (roll / numRolls);
     
     await new Promise(r => setTimeout(r, duration));

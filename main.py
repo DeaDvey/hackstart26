@@ -92,3 +92,7 @@ def page8():
 @app.route('/page9', methods=['POST','GET'])
 def page9():
 	return render_template('form9.html')
+
+@app.route('/page10', methods=['POST','GET'])
+def page10():
+	return render_template('form10.html')

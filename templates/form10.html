@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+<div class="formWrapper">
+    <h1 class="formHeader">Turing test:</h1>
+
+        <p id="error"></p>
+
+        <div id="question-1" class="question-card">
+            <p>1. Are you human?</p>
+            <button onclick="handleAnswer('yes', 1)">Yes</button>
+            <button onclick="handleAnswer('no', 1)">No</button>
+        </div>
+
+        <div id="question-2" class="question-card hidden">
+            <p>2. Are you sure?</p>
+            <button onclick="handleAnswer('a', 2)">Yes!!</button>
+            <button onclick="handleAnswer('b', 2)">I don't know anymore ';-;</button>
+        </div>
+
+        <div id="question-3" class="question-card hidden">
+            <p>3. Thats exactly what a robot would say!</p>
+            <button onclick="handleAnswer('a', 2)">What? No, i swear im human</button>
+            <button onclick="handleAnswer('b', 2)">You're right</button>
+        </div>
+
+        <div id="question-4" class="question-card hidden">
+            <p>4. Okay then. Are you a robot?</p>
+            <button onclick="handleAnswer('a', 2)">Possibly...</button>
+            <button onclick="handleAnswer('b', 2)">I already said, no</button>
+        </div>
+
+        <div id="question-5" class="question-card hidden">
+            <h2>Fine... you can proceed</h2>
+            <p id="score-text"></p>
+            <form method="POST" action="/page11">
+                <button type="submit">Yipeee</button>
+            </form>
+        </div>
+
+    <script>
+
+        const correctAnswers = {
+            1: 'a',
+            2: 'a',
+            3: 'a',
+            4: 'b'
+        };
+
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+
+        function handleAnswer(answer, questionNum) {
+            document.getElementById(`question-${currentQuestion}`).classList.add('hidden');
+
+            if (answer != correctAnswers[questionNum]) {
+                document.getElementById("error").textContent = "Incorrect, try again..."                
+                reset();
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion <= totalQuestions) {
+                document.getElementById(`question-${currentQuestion}`).classList.remove('hidden');
+            }
+        }
+
+    
+        function reset() {
+            currentQuestion = 1;
+            document.getElementById('question-1').classList.remove('hidden');
+            document.getElementById('result-container').classList.add('hidden');
+            document.getElementById('question-2').classList.add('hidden');
+            document.getElementById('question-3').classList.add('hidden');
+            document.getElementById('question-4').classList.add('hidden');
+        }
+
+        reset();
+
+      
+    </script>
+</body>
+</html>
+
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
