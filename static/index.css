@@ -28,7 +28,12 @@ body {
 }
 
 .formInputText {
-
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 8px;
 }
 
 .submitButton {
@@ -44,3 +49,8 @@ body {
 .submitButton:hover {
     background: #0056b3;
 }
+
+ .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;}
