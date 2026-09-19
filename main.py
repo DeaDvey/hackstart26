@@ -45,10 +45,14 @@ def page5(email_original=None, second_email=None):
 	second_domain = second_email.split("@")[-1]
 	if email_original == second_email:
 		return render_template('error.html', error='You should have a different personal email to your uni email!')
-	if second_domain == "gmail.com":
+	elif second_domain == "gmail.com":
 		return render_template('error.html', error='Don\'t use Gmail, you data subject!')
-	if second_domain == "outlook.com" or second_domain == "hotmail.com":
+	elif second_domain == "outlook.com" or second_domain == "hotmail.com":
 		return render_template('error.html', error='Don\'t use Outlook, you corporate brown-nose!')
+	elif second_domain == "proton.me":
+		return render_template('error.html', error='Oh so you like privacy?  We have a zero tolerance policy against child predators.')
+	elif second_domain == "aol.com":
+		return render_template('error.html', error='What is this? The 1990\'s?')
 	else:
 		return render_template('form5.html', email=email_original, second_email=second_email)
 
@@ -96,3 +100,11 @@ def page9():
 @app.route('/page10', methods=['POST','GET'])
 def page10():
 	return render_template('form10.html')
+
+@app.route('/page11', methods=['POST','GET'])
+def page11():
+	return render_template('form11.html')
+
+@app.route('/quizend', methods=['POST','GET'])
+def timeout():
+	return render_template('session_timeout.html')
